@@ -439,7 +439,7 @@ p {
             padding: 0;
             width: 316px; }
           #body div#content form label span.message {
-            /*background: url(../images/interface.png) no-repeat 0 -25px;*/
+            background: url(../images/interface.png) no-repeat 0 -25px;
             height: 151px; }
             #body div#content form label span.message textarea {
               background: none;
