@@ -1,6 +1,4 @@
-
 /***** PARTIALS *****/
-
 #footer {
     background: #dce9d4;
     border-top: 1px solid #b8d0aa;
@@ -79,18 +77,22 @@
 
                 &#mail:hover {
                     background: url(../images/icons.png) no-repeat 0 -14px;
+                    @include imgFondo();
                 }
 
                 &#facebook:hover {
                     background: url(../images/icons.png) no-repeat 0 -58px;
+                    @include imgFondo();
                 }
 
                 &#twitter:hover {
                     background: url(../images/icons.png) no-repeat 0 -106px;
+                    @include imgFondo();
                 }
 
                 &#googleplus:hover {
                     background: url(../images/icons.png) no-repeat 0 -154px;
+                    @include imgFondo();
                 }
             }
         }

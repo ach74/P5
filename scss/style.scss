@@ -1,10 +1,39 @@
-
 /***** VARIABLES *****/
 $dark_green: #356618;
 $zero-20px: 0 0 20px;
 $text_format: Arial, Helvetica, sans-serif;
 $light_green: #96b285;
 $opacity_1: alpha(opacity=100);
+
+
+/***** MIXINS *****/
+@mixin efect_img() {
+	filter: alpha(opacity=90);
+	/****** OPERATORS *******/
+	opacity: 9/10;
+}
+
+@mixin efect_img_3(){
+	filter: alpha(opacity=50);
+	/****** OPERATORS *******/
+	opacity: 5*10/100;
+}
+
+@mixin imgFondo() {
+	background-color: white;
+}
+
+/****** EXTEND ******/
+%border-background {
+	border:none;
+	background: none;
+}
+
+%text {
+	color: #818181;
+	font-family: $text_format;
+	font-size: 14px;
+}
 
 /***** IMPORT *****/
 @import "header.scss";
@@ -55,118 +84,18 @@ p {
 	background: #ffffff;
 
 	div {
-		&.header {
-			height: 557px;
-
-			div {
-				position: relative;
-
-				a img {
-					display: block;
-					filter: $opacity_1;
-					/* Needed for IE8 and old versions */
-					opacity: 1;
-				}
-			}
-
-			ul li a.figure img {
-				display: block;
-				filter: $opacity_1;
-				/* Needed for IE8 and old versions */
-				opacity: 1;
-			}
-		}
+		
+		/***** IMPORT *****/
+		@import "body_header.scss";
 
 		&.body ul li a img {
 			display: block;
 			filter: $opacity_1;
-			/* Needed for IE8 and old versions */
 			opacity: 1;
 		}
 
-		&.header {
-
-			div a img:hover,
-			ul li a.figure img:hover {
-				filter: alpha(opacity=90);
-				/* Needed for IE8 and old versions */
-				opacity: 0.9;
-			}
-		}
-
 		&.body ul li a img:hover {
-			filter: alpha(opacity=90);
-			/* Needed for IE8 and old versions */
-			opacity: 0.9;
-		}
-
-		&.header {
-			div div {
-				background: url(../images/bg-description.png) repeat-x;
-				height: 75px;
-				bottom: 0;
-				position: absolute;
-				padding: 17px 20px;
-				left: 0;
-				width: 860px;
-
-				h1 {
-					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-					font-size: 24px;
-					font-weight: normal;
-					margin: 0;
-					text-transform: uppercase;
-
-					a {
-						color: #e3e699;
-						text-decoration: none;
-
-						&:hover {
-							color: #ffffff;
-						}
-					}
-				}
-
-				p {
-					color: #ffffff;
-					letter-spacing: 0.028em;
-					line-height: 24px;
-
-					a.continue {
-						background: url(../images/interface.png) no-repeat -400px 0;
-						display: inline-block;
-						height: 20px;
-						left: 3px;
-						position: relative;
-						top: 5px;
-						width: 20px;
-
-						&:hover {
-							background: url(../images/interface.png) no-repeat -400px -20px;
-						}
-					}
-				}
-			}
-
-			ul {
-				background: $dark_green;
-				list-style: none;
-				margin: 0;
-				overflow: hidden;
-				padding: 10px 0;
-
-				li {
-					background: url(../images/separator1.png) repeat-y;
-					float: left;
-					overflow: hidden;
-					padding: 9px 20px 7px 0;
-					width: 280px;
-
-					&:first-child {
-						background: none;
-					}
-				}
-			}
+			@include efect_img();
 		}
 
 		&#content ul.section li img {
@@ -178,7 +107,6 @@ p {
 			a.figure {
 				display: block;
 				float: left;
-
 				img {
 					display: block;
 					border: 1px solid #ffffff;
@@ -303,6 +231,10 @@ p {
 				display: block;
 				float: left;
 			}
+			img:hover{
+				@include efect_img_3();
+			}
+
 
 			div {
 				float: right;
@@ -414,7 +346,6 @@ p {
 					display: block;
 					margin: 20px 0;
 					overflow: hidden;
-
 					span {
 						&:first-child {
 							background: none;
@@ -430,13 +361,9 @@ p {
 						float: left;
 						height: 19px;
 						width: 320px;
-
 						input {
-							background: none;
-							border: none;
-							color: #818181;
-							font-family: $text_format;
-							font-size: 14px;
+							@extend %border-background;
+							@extend %text;
 							height: 17px;
 							letter-spacing: 0.028em;
 							line-height: 17px;
@@ -448,13 +375,9 @@ p {
 						&.message {
 							background: url(../images/interface.png) no-repeat 0 -25px;
 							height: 151px;
-
 							textarea {
-								background: none;
-								border: none;
-								color: #818181;
-								font-family: $text_format;
-								font-size: 14px;
+								@extend %border-background;
+								@extend %text;
 								height: 147px;
 								letter-spacing: 0.028em;
 								margin: 2px 0 0 2px;
